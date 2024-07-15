@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "kylee-new-blocks/breaking-borders",
+	"version": "0.1.0",
+	"title": "Breaking Borders Group",
+	"category": "widgets",
+	"icon": "hammer",
+	"description": "A group block that will allow you to use SVGs to change the top and bottom border shapes.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "kylee-new-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
