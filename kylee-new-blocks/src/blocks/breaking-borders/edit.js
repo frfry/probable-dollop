@@ -11,12 +11,16 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
+<<<<<<< HEAD
 import {
 	useBlockProps,
 	InspectorControls,
 	InnerBlocks,
 } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
+=======
+import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
+>>>>>>> e9ad7217b5f51b7b93978390bb32b3f82a927839
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -43,6 +47,7 @@ export default function Edit(props) {
 	const { className, ...blockProps } = useBlockProps();
 	return (
 		<>
+<<<<<<< HEAD
 			<section className={`${className} alignfull`} {...blockProps}>
 				{props.attributes.enableTopCurve && (
 					<Curve
@@ -105,6 +110,12 @@ export default function Edit(props) {
 					)}
 				</PanelBody>
 			</InspectorControls>
+=======
+			<p {...useBlockProps()}>
+				{__("Kylee's New Blocks – hello from the editor!", "kylee-new-blocks")}
+			</p>
+			<InspectorControls>Test</InspectorControls>
+>>>>>>> e9ad7217b5f51b7b93978390bb32b3f82a927839
 		</>
 	);
 }
