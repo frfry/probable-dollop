@@ -6,7 +6,28 @@
  */
 
 .wp-block-kylee-new-blocks-breaking-borders {
-	background-color: #21759b;
-	color: #fff;
-	padding: 2px;
+	position: relative;
+	background: #ec4899;
+	padding: 80px 50px;
+
+	.curve {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+
+		&.top-curve {
+			top: 0;
+		}
+
+		&.bottom-curve {
+			bottom: 0;
+		}
+
+		svg {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	}
 }
