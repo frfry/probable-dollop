@@ -11,22 +11,12 @@ import { __ } from "@wordpress/i18n";
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 036d3af4c95b6f9636cf848d71d0e20dda399810
 import {
 	useBlockProps,
 	InspectorControls,
 	InnerBlocks,
 } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
-<<<<<<< HEAD
-=======
-import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
->>>>>>> e9ad7217b5f51b7b93978390bb32b3f82a927839
-=======
->>>>>>> 036d3af4c95b6f9636cf848d71d0e20dda399810
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -53,10 +43,6 @@ export default function Edit(props) {
 	const { className, ...blockProps } = useBlockProps();
 	return (
 		<>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 036d3af4c95b6f9636cf848d71d0e20dda399810
 			<section className={`${className} alignfull`} {...blockProps}>
 				{props.attributes.enableTopCurve && (
 					<Curve
@@ -65,6 +51,8 @@ export default function Edit(props) {
 						flipY={props.attributes.topFlipY}
 						height={props.attributes.topHeight}
 						width={props.attributes.topWidth}
+						custom={props.attributes.enableTopCurve}
+						path={props.attributes.customTopSvg}
 					/>
 				)}
 				<InnerBlocks />
@@ -76,6 +64,8 @@ export default function Edit(props) {
 						flipY={props.attributes.bottomFlipY}
 						height={props.attributes.bottomHeight}
 						width={props.attributes.bottomWidth}
+						custom={props.attributes.enableBottomCurve}
+						path={props.attributes.customBottomSvg}
 					/>
 				)}
 			</section>
@@ -119,15 +109,6 @@ export default function Edit(props) {
 					)}
 				</PanelBody>
 			</InspectorControls>
-<<<<<<< HEAD
-=======
-			<p {...useBlockProps()}>
-				{__("Kylee's New Blocks – hello from the editor!", "kylee-new-blocks")}
-			</p>
-			<InspectorControls>Test</InspectorControls>
->>>>>>> e9ad7217b5f51b7b93978390bb32b3f82a927839
-=======
->>>>>>> 036d3af4c95b6f9636cf848d71d0e20dda399810
 		</>
 	);
 }

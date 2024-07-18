@@ -1,4 +1,4 @@
-<?
+<?php
 $block_wrapper_attributes = get_block_wrapper_attributes([
   'class' => 'alignfull'
 ]);
@@ -7,22 +7,34 @@ $normalPath =
 $invertedPath =
   "M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z";
 
+$path;
+$bottomPath;
+if($attributes['enableCustomTop'] && ($attributes['customTopSvg'] !== null )){
+  $path = $attributes['customTopSvg'];
+} else{
+  $path = $normalPath;
+}
+if($attributes['enableCustomBottom'] && ($attributes['customBottomSvg'] !== null )){
+  $bottomPath = $attributes['customBottomSvg'];
+} else{
+  $bottomPath = $normalPath;
+}
 $topTransform = "scaleX(" . ($attributes['topFlipX'] ? "-1" : "1") . ") rotate(" . ($attributes['topFlipY'] ? "180deg" : "0") . ")";
 $bottomTransform = "scaleY(-1) scaleX(" . ($attributes['bottomFlipX'] ? "-1" : "1") . ") rotate(" . ($attributes['bottomFlipY'] ? "180deg" : "0") . ")";
-//wp_send_json($content);
 ?>
-<div <? echo $block_wrapper_attributes; ?>>
-  <div class="curve top-curve" style="display: <? echo $attributes['enableTopCurve'] ? "block" : "none" ?>; transform: <? echo $topTransform; ?>; height: <? echo $attributes['topHeight'] ?>px;">
-    <svg style="height: <? echo $attributes['topHeight'] ?>px; width: <? echo $attributes['topWidth'] ?>%" preserveAspectRatio="none" viewBox="0 0 1200 120">
-      <path fill="<? echo $attributes['topColor'] ?? "white" ?>" d="<? echo $attributes['topFlipY'] ? $invertedPath : $normalPath; ?>"></path>
+
+<div <?php echo $block_wrapper_attributes; ?> >
+  <div class="curve top-curve" style="display: <?php echo $attributes['enableTopCurve'] ? "block" : "none" ?>; transform: <?php echo $topTransform; ?>; height: <?php echo $attributes['topHeight'] ?>px;">
+    <svg style="height: <?php echo $attributes['topHeight'] ?>px; width: <?php echo $attributes['topWidth'] ?>%" preserveAspectRatio="none" viewBox="0 0 1200 120">
+      <path fill="<?php echo $attributes['topColor'] ?? "white" ?>" d="<?php echo $attributes['topFlipY'] ? $invertedPath : $path; ?>"></path>
     </svg>
   </div>
   <div style="position: relative; z-index: 1;">
-    <? echo $content; ?>
+    <?php echo $content; ?>
   </div>
-  <div class="curve bottom-curve" style="z-index: 0; display: <? echo $attributes['enableBottomCurve'] ? "block" : "none" ?>; transform: <? echo $bottomTransform; ?>; height: <? echo $attributes['bottomHeight'] ?>px;">
-    <svg style="height: <? echo $attributes['bottomHeight'] ?>px; width: <? echo $attributes['bottomWidth'] ?>%" preserveAspectRatio="none" viewBox="0 0 1200 120">
-      <path fill="<? echo $attributes['bottomColor'] ?? "white" ?>" d="<? echo $attributes['bottomFlipY'] ? $invertedPath : $normalPath; ?>"></path>
+  <div class="curve bottom-curve" style="z-index: 0; display: <?php echo $attributes['enableBottomCurve'] ? "block" : "none" ?>; transform: <?php echo $bottomTransform; ?>; height: <?php echo $attributes['bottomHeight'] ?>px;">
+    <svg style="height: <?php echo $attributes['bottomHeight'] ?>px; width: <?php echo $attributes['bottomWidth'] ?>%" preserveAspectRatio="none" viewBox="0 0 1200 120">
+      <path fill="<?php echo $attributes['bottomColor'] ?? "white" ?>" d="<?php echo $attributes['bottomFlipY'] ? $invertedPath : $bottomPath; ?>"></path>
     </svg>
   </div>
 </div>

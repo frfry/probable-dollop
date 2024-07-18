@@ -2,6 +2,7 @@ import {
 	HorizontalRule,
 	RangeControl,
 	ToggleControl,
+	TextareaControl,
 } from "@wordpress/components";
 import { ColorPalette } from "@wordpress/block-editor";
 import { __ } from "@wordpress/i18n";
@@ -10,6 +11,33 @@ import metadata from "../block.json";
 export const TopCurveSettings = (props) => {
 	return (
 		<>
+			<div style={{ display: "flex" }}>
+				<ToggleControl
+					onChange={(isChecked) => {
+						props.setAttributes({
+							enableCustomTop: isChecked,
+						});
+					}}
+					checked={props.attributes.enableCustomTop}
+				/>
+				<span>{__("Use a custom SVG for top", metadata.textdomain)}</span>
+			</div>
+
+			{!props.attributes.enableCustomTop &&
+				(props.attributes.customTopSvg = "")}
+
+			{props.attributes.enableCustomTop && (
+				<TextareaControl
+					label="SVG code"
+					value={props.attributes.customTopSvg ?? ""}
+					onChange={(newValue) => {
+						props.setAttributes({
+							customTopSvg: newValue,
+						});
+					}}
+				/>
+			)}
+
 			<HorizontalRule />
 			<RangeControl
 				min={100}
@@ -33,29 +61,33 @@ export const TopCurveSettings = (props) => {
 				}}
 				label={__("Height", metadata.textdomain)}
 			/>
-			<HorizontalRule />
-			<div style={{ display: "flex" }}>
-				<ToggleControl
-					onChange={(isChecked) => {
-						props.setAttributes({
-							topFlipX: isChecked,
-						});
-					}}
-					checked={props.attributes.topFlipX}
-				/>
-				<span>{__("Flip horizontally", metadata.textdomain)}</span>
-			</div>
-			<div style={{ display: "flex" }}>
-				<ToggleControl
-					onChange={(isChecked) => {
-						props.setAttributes({
-							topFlipY: isChecked,
-						});
-					}}
-					checked={props.attributes.topFlipY}
-				/>
-				<span>{__("Flip vertically", metadata.textdomain)}</span>
-			</div>
+			{!props.attributes.enableCustomTop && (
+				<>
+					<HorizontalRule />
+					<div style={{ display: "flex" }}>
+						<ToggleControl
+							onChange={(isChecked) => {
+								props.setAttributes({
+									topFlipX: isChecked,
+								});
+							}}
+							checked={props.attributes.topFlipX}
+						/>
+						<span>{__("Flip horizontally", metadata.textdomain)}</span>
+					</div>
+					<div style={{ display: "flex" }}>
+						<ToggleControl
+							onChange={(isChecked) => {
+								props.setAttributes({
+									topFlipY: isChecked,
+								});
+							}}
+							checked={props.attributes.topFlipY}
+						/>
+						<span>{__("Flip vertically", metadata.textdomain)}</span>
+					</div>
+				</>
+			)}
 			<HorizontalRule />
 			<div>
 				<label>{__("Curve color", metadata.textdomain)}</label>
