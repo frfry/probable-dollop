@@ -8,7 +8,24 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-kylee-new-blocks-breaking-borders {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  position: relative;
+  background: #ec4899;
+  padding: 80px 50px;
+}
+.wp-block-kylee-new-blocks-breaking-borders .curve {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.wp-block-kylee-new-blocks-breaking-borders .curve.top-curve {
+  top: 0;
+}
+.wp-block-kylee-new-blocks-breaking-borders .curve.bottom-curve {
+  bottom: 0;
+}
+.wp-block-kylee-new-blocks-breaking-borders .curve svg {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

@@ -1,13 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "create-block/kylee-new-blocks",
+  "name": "kylee-new-blocks/gallery",
   "version": "0.1.0",
-  "title": "Kylee New Blocks",
-  "category": "widgets",
-  "icon": "hammer",
-  "description": "Example block scaffolded with Create Block tool.",
-  "example": {},
+  "title": "Kylee's Image Gallery",
+  "category": "kylee",
+  "icon": "images-alt2",
+  "description": "Interactive image gallery",
   "supports": {
     "html": false
   },
@@ -15,5 +14,6 @@
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./script.js",
+  "render": "file:./render.php"
 }
