@@ -1,8 +1,8 @@
 {
 	"name": "kylee-new-blocks",
 	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool.",
-	"author": "The WordPress Contributors",
+	"description": "Block with optional csv shapes to create different shapes for the background.",
+	"author": "frfry",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {

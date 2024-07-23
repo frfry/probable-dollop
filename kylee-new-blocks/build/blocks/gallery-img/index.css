@@ -55,10 +55,10 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   .svg-inline--fa.fa-2xl {
     vertical-align: -0.3125em; }
   .svg-inline--fa.fa-pull-left {
-    margin-left: var(--fa-pull-margin, 0.3em);
+    margin-right: var(--fa-pull-margin, 0.3em);
     width: auto; }
   .svg-inline--fa.fa-pull-right {
-    margin-right: var(--fa-pull-margin, 0.3em);
+    margin-left: var(--fa-pull-margin, 0.3em);
     width: auto; }
   .svg-inline--fa.fa-li {
     width: var(--fa-li-width, 2em);
@@ -68,10 +68,10 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 
 .fa-layers svg.svg-inline--fa {
   bottom: 0;
-  right: 0;
+  left: 0;
   margin: auto;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0; }
 
 .fa-layers-text, .fa-layers-counter {
@@ -90,9 +90,9 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
     transform-origin: center center; }
 
 .fa-layers-text {
-  right: 50%;
+  left: 50%;
   top: 50%;
-  transform: translate(50%, -50%);
+  transform: translate(-50%, -50%);
   transform-origin: center center; }
 
 .fa-layers-counter {
@@ -105,39 +105,39 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   min-width: var(--fa-counter-min-width, 1.5em);
   overflow: hidden;
   padding: var(--fa-counter-padding, 0.25em 0.5em);
-  left: var(--fa-right, 0);
+  right: var(--fa-right, 0);
   text-overflow: ellipsis;
   top: var(--fa-top, 0);
   transform: scale(var(--fa-counter-scale, 0.25));
-  transform-origin: top left; }
+  transform-origin: top right; }
 
 .fa-layers-bottom-right {
   bottom: var(--fa-bottom, 0);
-  left: var(--fa-right, 0);
-  top: auto;
-  transform: scale(var(--fa-layers-scale, 0.25));
-  transform-origin: bottom left; }
-
-.fa-layers-bottom-left {
-  bottom: var(--fa-bottom, 0);
-  right: var(--fa-left, 0);
-  left: auto;
+  right: var(--fa-right, 0);
   top: auto;
   transform: scale(var(--fa-layers-scale, 0.25));
   transform-origin: bottom right; }
 
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom left; }
+
 .fa-layers-top-right {
   top: var(--fa-top, 0);
-  left: var(--fa-right, 0);
-  transform: scale(var(--fa-layers-scale, 0.25));
-  transform-origin: top left; }
-
-.fa-layers-top-left {
-  right: var(--fa-left, 0);
-  left: auto;
-  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
   transform: scale(var(--fa-layers-scale, 0.25));
   transform-origin: top right; }
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top left; }
 
 .fa-1x {
   font-size: 1em; }
@@ -205,13 +205,13 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 
 .fa-ul {
   list-style-type: none;
-  margin-right: var(--fa-li-margin, 2.5em);
-  padding-right: 0; }
+  margin-left: var(--fa-li-margin, 2.5em);
+  padding-left: 0; }
   .fa-ul > li {
     position: relative; }
 
 .fa-li {
-  right: calc(-1 * var(--fa-li-width, 2em));
+  left: calc(-1 * var(--fa-li-width, 2em));
   position: absolute;
   text-align: center;
   width: var(--fa-li-width, 2em);
@@ -225,12 +225,12 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   padding: var(--fa-border-padding, 0.2em 0.25em 0.15em); }
 
 .fa-pull-left {
-  float: right;
-  margin-left: var(--fa-pull-margin, 0.3em); }
-
-.fa-pull-right {
   float: left;
   margin-right: var(--fa-pull-margin, 0.3em); }
+
+.fa-pull-right {
+  float: right;
+  margin-left: var(--fa-pull-margin, 0.3em); }
 
 .fa-beat {
   animation-name: fa-beat;
@@ -351,25 +351,25 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 
 @keyframes fa-flip {
   50% {
-    transform: rotate3d(var«-190:1», var«190:-2», var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg)); } }
+    transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg)); } }
 
 @keyframes fa-shake {
   0% {
-    transform: rotate(15deg); }
-  4% {
     transform: rotate(-15deg); }
+  4% {
+    transform: rotate(15deg); }
   8%, 24% {
-    transform: rotate(18deg); }
-  12%, 28% {
     transform: rotate(-18deg); }
+  12%, 28% {
+    transform: rotate(18deg); }
   16% {
-    transform: rotate(22deg); }
-  20% {
     transform: rotate(-22deg); }
+  20% {
+    transform: rotate(22deg); }
   32% {
-    transform: rotate(12deg); }
-  36% {
     transform: rotate(-12deg); }
+  36% {
+    transform: rotate(12deg); }
   40%, 100% {
     transform: rotate(0deg); } }
 
@@ -377,16 +377,16 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
   0% {
     transform: rotate(0deg); }
   100% {
-    transform: rotate(-360deg); } }
+    transform: rotate(360deg); } }
 
 .fa-rotate-90 {
-  transform: rotate(-90deg); }
+  transform: rotate(90deg); }
 
 .fa-rotate-180 {
-  transform: rotate(-180deg); }
+  transform: rotate(180deg); }
 
 .fa-rotate-270 {
-  transform: rotate(-270deg); }
+  transform: rotate(270deg); }
 
 .fa-flip-horizontal {
   transform: scale(-1, 1); }
@@ -411,10 +411,10 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 .fa-stack-1x,
 .fa-stack-2x {
   bottom: 0;
-  right: 0;
+  left: 0;
   margin: auto;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   z-index: var(--fa-stack-z-index, auto); }
 
@@ -475,3 +475,5 @@ svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
 .fa-duotone.fa-inverse {
   color: var(--fa-inverse, #fff); }
 
+
+/*# sourceMappingURL=index.css.map*/

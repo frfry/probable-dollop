@@ -15,7 +15,18 @@
       "text": true
     },
     "spacing": {
-      "padding": true
+      "padding": true,
+      "margin": true
+    },
+    "align": true,
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
+    "typography": {
+      "fontSize": true,
+      "textAlign": true,
+      "lineHeight": true
     }
   },
   "variations": [
@@ -116,6 +127,22 @@
     "bottomColor": {
       "type": "string",
       "default": "#FFFFFF"
+    },
+    "customTopSvg": {
+      "type": "string",
+      "default": ""
+    },
+    "customBottomSvg": {
+      "type": "string",
+      "default": ""
+    },
+    "enableCustomTop": {
+      "type": "boolean",
+      "default": false
+    },
+    "enableCustomBottom": {
+      "type": "boolean",
+      "default": false
     }
   },
   "textdomain": "kylee-new-blocks",

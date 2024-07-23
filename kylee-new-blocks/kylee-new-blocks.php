@@ -13,8 +13,9 @@
  * @package KyleeNewBlocks
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+
+if (!defined('ABSPATH')) {
+	die('Silence is golden.');
 }
 
 /**
@@ -24,19 +25,38 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function kylee_new_blocks_breaking_borders_block_init() {
-	register_block_type( __DIR__ . '/build/blocks/breaking-borders' );
-	register_block_type( __DIR__ . '/build/blocks/gallery' );
-	register_block_type( __DIR__ . '/build/blocks/gallery-img' );
-	register_block_pattern_category('kylee', array(
-	'label' => __('Kylee', 'kylee')
-));
-add_filter('block_categories_all', function ($categories) {
-	array_unshift($categories, [
-		'slug' => 'kylee',
-		'title' => 'Kylee'
-	]);
-	return $categories;
-});
+final class KyleeNewBlocks 
+{
+	static function init()
+	{
+		add_action('enqueue_block_assets', function () {
+			//wp_enqueue_style("dashicons");
+			$style_url = plugins_url("build/style-index.css", __FILE__);
+			wp_enqueue_style('kylee-new-blocks-style', $style_url, array());
+		});
+		add_action('init', function (){
+			add_filter('block_categories_all', function ($categories) {
+				array_unshift($categories, [
+					'slug' => 'kylee',
+					'title' => 'Kylee'
+				]);
+				return $categories;
+			});
+			register_block_type( __DIR__ . '/build/blocks/breaking-borders' );
+			register_block_type( __DIR__ . '/build/blocks/gallery' );
+			register_block_type( __DIR__ . '/build/blocks/gallery-img' );
+			register_block_pattern_category('kylee', array(
+				'label' => __('Kylee', 'kylee')
+			));
+			
+			$script_url = plugins_url('build/index.js', __FILE__);
+			wp_enqueue_script('kylee-new-blocks-index', $script_url, array('wp-blocks', 'wp-element', 'wp-editor'));
+
+			$style_url = plugins_url("build/style-index.css", __FILE__);
+			wp_enqueue_style('kylee-new-blocks-style', $style_url, array());
+		
+		});
+	}
 }
-add_action( 'init', 'kylee_new_blocks_breaking_borders_block_init' );
+
+KyleeNewBlocks::init();
