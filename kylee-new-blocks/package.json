@@ -1,7 +1,7 @@
 {
 	"name": "kylee-new-blocks",
 	"version": "0.1.0",
-	"description": "Block with optional csv shapes to create different shapes for the background.",
+	"description": "Plugin with a few custom built blocks and features",
 	"author": "frfry",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",

@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Breaking Borders Block
- * Description:       Block with optional csv shapes to create different shapes for the background.
+ * Plugin Name:       Kylee New Blocks
+ * Description:       Plugin with a few custom built blocks and features
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
