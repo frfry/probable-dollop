@@ -61,7 +61,7 @@ registerFormatType("kylee-new-blocks/low-highlight", {
 										);
 									} else {
 										onChange(
-											removeFormat(value, "blockylicious/low-highlight"),
+											removeFormat(value, "kylee-new-blocks/low-highlight"),
 										);
 									}
 								}}
